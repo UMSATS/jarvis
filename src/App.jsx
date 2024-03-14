@@ -29,12 +29,19 @@ const Box = ({ onSelect }) => {
   
 
 const App = () => {
-  return (
-    <Canvas camera = {{position: [0,0,4]}}>
-    	<Box />
-	  	<OrbitControls />
-    </Canvas>
-  )
+	const [selectedMesh, setSelectedMesh] = useState(null);
+
+	const handleSelect = (event, mesh) => {
+		event.stopPropagation();
+		setSelectedMesh(mesh.current);
+	};
+
+	return (
+	<Canvas camera = {{position: [0,0,4]}}>
+		<Box onSelect={handleSelect} />
+		<OrbitControls />
+	</Canvas>
+	)
 }
 
 export default App
