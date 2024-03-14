@@ -1,6 +1,7 @@
 import { Canvas } from "@react-three/fiber"
 import './App.css'
 import { BoxGeometry } from "three"
+import { OrbitControls } from "@react-three/drei"
 
 const App = () => {
   return (
@@ -10,6 +11,7 @@ const App = () => {
         <boxGeometry args={[1, 1, 1]} />
         <meshStandardMaterial wireframe />
       </mesh>
+	  <OrbitControls />
     </Canvas>
   )
 }
